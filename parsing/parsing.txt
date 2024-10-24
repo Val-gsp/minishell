@@ -1,0 +1,33 @@
+ft_split modifie
+
+quotes
+
+creation des noeuds:
+
+- typedef struct s_node 
+
+pour le parcours de la chaine :
+
+coder une fonction qui avance tant quon ne rencontre pas un parametre (>, >>, < , <<, | )
+
+si on rencontre un parametre :
+
+si c est une redirection -> on creer une structure noeud pour tt 
+ce qu il y a a gauche qui va pointer sur t_redirection qui contiendra le fichier un noeud back et next
+
+si cest un pipe : faire pointer la structure qu on creera sur la structure t_pipe qui contiendra la
+sortie de la commande de gauche et l entree de la commande de droite
+
+
+
+Environnement variable : 
+
+des que le proggramme se lance = stocker les environnement dans structure puis convertir en tableau de tableau (plus simple)
+fonction set_env_var();
+
+pour la gestion des commandes qui manipulent les variables d environnement;
+
+coder une fonction qui trie sort_lst() (bubble sort par ex) la liste chainee avant de l afficher (pour la commande
+export sans arguments) et coder une autre fonction lst_to_tab()
+
+
