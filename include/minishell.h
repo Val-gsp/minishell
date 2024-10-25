@@ -25,12 +25,21 @@
 # define BOLD 		"\e[0;36m" 				// Bold
 # define ARROW 		"\033[32m➜\033[0m" 	   // Green Arrow
 
+# define INPUT		1	//"<"
+# define HEREDOC	2	//"<<"
+# define TRUNC		3	//">"
+# define APPEND		4	//">>"
+# define PIPE		5	//"|"
+# define CMD		6	//"|"
+# define ARG		7	//"|"
+
 // *** STRUCT ***
 
 typedef struct s_var // liste chainee pour les variables d environnement
 {
     char *key;
     char *value;
+    struct s_var *next;
 }              t_var;
 
 typedef struct s_var_data
@@ -49,13 +58,12 @@ struct s_data // structure generale
 
 typedef struct s_node // noeud pour le parsing de la ligne
 {
+    int type;
     char *command; //commande non parse apres reception
-    int in; // entree
-    int out; //sortie
+    t_fd *fd_tab; //sortie
     char *builtin; // nom de la commande
     char **s_command;       // tableau split
-    struct s_node *next; // pointeur sur la prochaine commande
-    t_arg *arg; // les argument de la commande dans une liste chainee , pas sur de le garder
+    struct s_node *next; // pointeur sur la prochaine commande 
 } t_node;
 
 

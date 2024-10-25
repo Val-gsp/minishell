@@ -31,3 +31,18 @@ coder une fonction qui trie sort_lst() (bubble sort par ex) la liste chainee ava
 export sans arguments) et coder une autre fonction lst_to_tab()
 
 
+
+peut etre utile :
+
+# define INPUT		1	//"<"
+# define HEREDOC	2	//"<<"
+# define TRUNC		3	//">"
+# define APPEND		4	//">>"
+# define PIPE		5	//"|"
+# define CMD		6	//"|"
+# define ARG		7	//"|"
+
+gerer le $? -> doit renvoyer le retour de la derniere commande execute
+creer une variable dans notre structure data qui contiendra le retour de la derniere commande
+
+si le dernier token est un pipe -> error;
