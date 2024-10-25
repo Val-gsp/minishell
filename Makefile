@@ -8,11 +8,13 @@ LIBS = -lreadline
 SRCDIR = .
 BUILTIN_DIR = builtin
 PARSING_DIR = parsing
+ENV_DIR = env
 
 OBJDIR = obj
 
 SRCS = $(SRCDIR)/main.c \
-       $(PARSING_DIR)/node.c
+       $(PARSING_DIR)/node.c \
+	   $(ENV_DIR)/env.c
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
