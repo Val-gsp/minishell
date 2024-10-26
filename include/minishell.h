@@ -76,6 +76,7 @@ typedef enum e_tokentype
 	ARG         // Argument (Si commande à arguments)
 }	t_tokentype;
 
+
 typedef struct s_token
 {
 	t_tokentype			type;		// Type de token
@@ -100,7 +101,7 @@ typedef struct s_data // structure generale
 
 // *** INITIALISATION ***
 
-    t_data	*init_data(t_data *data);
+t_data	*init_data(t_data *data);
 
 // *** FUNCTION VARIABLE ENV ***
 
@@ -108,10 +109,14 @@ void    init_env(t_data *data, char **envp_system);
 void    ft_env(t_data *data);
 void    free_envp(t_data *data);
 
+void ft_export(t_data *data);
+void    bubble_sort_env(char **env);
+
 
 // *** FUNCTION PARSING ***
 
 // *** FUNCTION COMMAND ***
+
 
 // *** FUNCTION DBUG ***
 

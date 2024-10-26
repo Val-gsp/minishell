@@ -1,14 +1,13 @@
 #include "include/minishell.h"
 
-int	main(int argc, char **argv)
+int	main(int argc, char **argv, char **envp)
 {
     t_data	data;
     char    *line;
 
-    (void)argv;
     (void)argc;
-    data.commands = NULL;
-
+    (void)argv;
+    init_env(&data, envp);
     while (1)
     {
         line = readline("minishell> ");
@@ -16,11 +15,21 @@ int	main(int argc, char **argv)
             break; // Gérer Ctrl+D
         
         add_history(line);
-        parse_line(&data, line);
-        dbug_print_commands(&data);
+
+        // Vérifie si la commande est "env"
+        if (strcmp(line, "env") == 0)
+            ft_env(&data); // Affiche les variables d'environnement
+        else if (strcmp(line, "export") == 0)
+            ft_export(&data);
+        else
+        {
+            // Ici, tu pourras ajouter des vérifications pour d'autres commandes
+            printf("Commande inconnue : %s\n", line);
+        }
+
         free(line);
-        free_nodes(data.commands);
-        data.commands = NULL;
     }
+
+    free_envp(&data);
     return (0);
 }
